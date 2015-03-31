@@ -1,4 +1,4 @@
-$.material.init();
+// $.material.init();
 
 var $form = $(".ajax-form");
 // console.log($form)
@@ -22,6 +22,7 @@ var onError = function(data, status) {
 $form.submit(function(event) {
   // console.log('submitted')
   event.preventDefault();
+  // console.log('prevented')
   var location = $form.find("[name='location']:checked").val();
   if(location){
     $.post("submit", {
