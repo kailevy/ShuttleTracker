@@ -1,3 +1,5 @@
+$.material.init();
+
 var $form = $(".ajax-form");
 // console.log($form)
 
