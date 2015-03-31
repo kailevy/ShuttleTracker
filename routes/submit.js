@@ -17,7 +17,7 @@ routes.submit = function(req, res) {
         obj.place = vanUpdate.place;
         obj.timestamp = moment(vanUpdate.timestamp).tz('America/New_York').format('MMMM Do YYYY, h:mm:ss a z');
         res.send(obj)
-        console.log(obj)
+        // console.log(obj)
     });
 };
 
