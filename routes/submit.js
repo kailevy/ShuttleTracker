@@ -6,21 +6,25 @@ var routes = {};
 
 var Van = models.Van;
 
-// routes.submit = function(req, res) {
-//   console.log(req.body);
-//   res.end('.');
-// };
 
 routes.submit = function(req, res) {
-    console.log('body', req.body)
+    // console.log('body', req.body)
     var vanUpdate = new Van({place:req.body.data})
     vanUpdate.save(function(err,data){
         if (err) {
             console.log('Error!')
         }
-        console.log('saved')
+        var times = printDate(new Date(vanUpdate.timestamp));
+        var obj = new Object();
+        obj.place = vanUpdate.place;
+        obj.timestamp = times
+        res.send(obj)
+        console.log(obj)
     });
-    res.send(req.body.data)
+};
+
+function printDate(date) {
+    return date.toLocaleDateString() + ' at ' + date.toLocaleTimeString()
 };
 
 module.exports = routes;

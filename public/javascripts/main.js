@@ -1,9 +1,15 @@
 var $form = $(".ajax-form");
-console.log($form)
+// console.log($form)
+
+function printDate(date) {
+    return date.toLocaleDateString() + ' at ' + date.toLocaleTimeString()
+};
 
 var onSuccess = function(data, status) {
-  console.log('DONE')
-  console.log(data)
+  $("#lastPlace").html('Last seen at: ' + data.place);
+  $("#lastTime").html(data.timestamp);
+  $("#changeHeader").html('Thank you for helping!');
+  $("#hideForm").remove();
 };
 
 var onError = function(data, status) {
@@ -12,12 +18,14 @@ var onError = function(data, status) {
 };
 
 $form.submit(function(event) {
-  console.log('submitted')
+  // console.log('submitted')
   event.preventDefault();
   var location = $form.find("[name='location']:checked").val();
-  $.post("submit", {
-    data: location
-  })
+  if(location){
+    $.post("submit", {
+      data: location
+    })
     .done(onSuccess)
     .error(onError);
+  }
 });

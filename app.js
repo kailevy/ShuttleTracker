@@ -8,6 +8,7 @@ var mongoose = require('mongoose');
 var app = express();
 
 var index = require('./routes/index');
+var sightings = require('./routes/sightings.js');
 
 var submit = require('./routes/submit.js');
 
@@ -22,10 +23,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', index.home);
+app.get('/sightings', sightings.sightings);
+
 
 app.post('/submit', submit.submit);
 
-mongoURI = process.env.MONGOURI || "mongodb://localhost/ingredients";
+mongoURI = process.env.MONGOURI || "mongodb://localhost";
 mongoose.connect(mongoURI);
 
 var PORT = process.env.PORT || 3000;
