@@ -10,6 +10,7 @@ var app = express();
 
 var index = require('./routes/index');
 var sightings = require('./routes/sightings.js');
+var info = require('./routes/info.js');
 
 var submit = require('./routes/submit.js');
 
@@ -26,6 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', index.home);
 app.get('/sightings', sightings.sightings);
+app.get('/info', info.home);
 
 
 app.post('/submit', submit.submit);
