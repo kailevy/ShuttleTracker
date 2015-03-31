@@ -1,7 +1,6 @@
 var path = require('path');
-
 var models = require('../models/models');
-
+var moment = require('moment-timezone');
 var routes = {};
 
 var Van = models.Van;
@@ -14,10 +13,9 @@ routes.submit = function(req, res) {
         if (err) {
             console.log('Error!')
         }
-        var times = printDate(new Date(vanUpdate.timestamp));
         var obj = new Object();
         obj.place = vanUpdate.place;
-        obj.timestamp = times
+        obj.timestamp = moment(vanUpdate.timestamp).tz('America/New_York').format('MMMM Do YYYY, h:mm:ss a z');
         res.send(obj)
         console.log(obj)
     });

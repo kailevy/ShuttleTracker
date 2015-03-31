@@ -3,13 +3,9 @@
 var $form = $(".ajax-form");
 // console.log($form)
 
-function printDate(date) {
-    return date.toLocaleDateString() + ' at ' + date.toLocaleTimeString()
-};
-
 var onSuccess = function(data, status) {
   $("#lastPlace").html('Last seen at: ' + data.place);
-  $("#lastTime").html(data.timestamp);
+  $("#lastTime").html('<strong>'+data.timestamp+'</strong>');
   $("#changeHeader").html('Thank you for helping!');
   $("#hideForm").remove();
 };
