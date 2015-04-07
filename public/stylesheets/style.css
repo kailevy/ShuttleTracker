@@ -1,8 +1,14 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.ajax-form {
+    list-style: none; 
+    width: 40rem; 
+    padding-top: 2rem;
+    position: relative; 
+    float: left; 
+    display: block; 
+    left: 43%;
+    font-size: 2rem;
 }
 
-a {
-  color: #00B7FF;
+#submit-button {
+    padding-left: 5rem
 }
