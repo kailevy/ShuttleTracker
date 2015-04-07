@@ -4,9 +4,14 @@
     padding-top: 2rem;
     position: relative; 
     float: left; 
-    display: block; 
-    left: 40%;
+    display: inline-block; 
     font-size: 2.5rem;
+}
+
+.form-wrapper {
+    margin-right: auto;
+    margin-left: auto;
+    width:35rem;
 }
 
 #submit-button {
