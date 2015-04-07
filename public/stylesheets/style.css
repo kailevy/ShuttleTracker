@@ -1,14 +1,18 @@
 .ajax-form {
     list-style: none; 
-    width: 40rem; 
+    max-width: 80rem; 
     padding-top: 2rem;
     position: relative; 
     float: left; 
     display: block; 
-    left: 43%;
-    font-size: 2rem;
+    left: 40%;
+    font-size: 2.5rem;
 }
 
 #submit-button {
-    padding-left: 5rem
+    padding-left: 9rem
+}
+
+.form-label {
+    font-weight: normal;
 }
