@@ -18,6 +18,13 @@
     text-align: center;
 }
 
+.navbar-default {
+    background-image: url("/images/logo.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-color: #000000;
+}
+
 .form-label {
     font-weight: normal;
 }
