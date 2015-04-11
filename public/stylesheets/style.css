@@ -14,10 +14,8 @@
 }
 
 .navbar-default {
-    background-image: url("/images/logo.png");
-    background-repeat: no-repeat;
-    background-position: left;
-    background-color: #000000;
+    background: url("/images/logo.png") no-repeat left,
+                url("/images/bg.png") repeat left;
 }
 
 .form-label {
