@@ -18,9 +18,9 @@
     text-align: center;
 }
 
-.navbar-default {
-    background: url("/images/logo.png") no-repeat left,
-                url("/images/bg.png") repeat left;
+.navbar-black {
+    background: url("/images/logo.png") no-repeat left;
+    background-size: contain;
 }
 
 .form-label {
