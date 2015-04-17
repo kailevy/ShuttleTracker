@@ -1,11 +1,16 @@
 <div align='center'>
     <h2 id='lastPlace'>Last seen at: {{lastPlace}} </h2>
     <h3 id='lastTime'><strong>{{lastTime}}</strong></h3>
+    {{#if displaying}}
+        <h4>Next stop: {{place}} in {{minutes}} minutes<br>
+            Approximate location below-- update when you get on the shuttle to help our accuracy!</h4>
+        <img src={{fakeImage}}>
+    {{/if}}
 </div>
 <div style='width: 100%; overflow: hidden;'>
     <h2 id='changeHeader' align='center'>Tell us where the shuttle is!<br></h2>
     <div class='form-wrapper'>
-        <form id='hideForm' class="ajax-form" action='submit' method='POST' style=''>
+        <form id='hideForm' class="ajax-form" action='submit' method='POST'>
             <p2>
                 <label class="form-label"><input type='radio' name='location' value='Wellesley Campus Center'> Wellesley Campus Center</label></li><br><br>
                 <label class="form-label"><input type='radio' name='location' value='Wellesley Chapel'> Wellesley Chapel</label></li><br><br>

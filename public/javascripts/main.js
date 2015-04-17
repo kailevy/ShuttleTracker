@@ -1,6 +1,7 @@
 // $.material.init();
 
 var $form = $(".ajax-form");
+var $fakeform = $("#nextdest");
 // console.log($form)
 
 var onSuccess = function(data, status) {
@@ -15,6 +16,16 @@ var onSuccess = function(data, status) {
     $("#cats").hide();
   });
 };
+
+var i = 0;
+
+var fakeSuccess = function(data, status) {
+  var colors = ["#FF0000", "#00FF00","#0000FF"]
+  var setcolor = colors[i%3];
+  console.log(setcolor)
+  $("#successful").html("<p style='color:"+ setcolor +"'>Submitted-- check main page.</p>")
+  i += 1;
+}
 
 var onError = function(data, status) {
   console.log("status", status);
@@ -32,5 +43,22 @@ $form.submit(function(event) {
     })
     .done(onSuccess)
     .error(onError);
+  }
+});
+
+$fakeform.submit(function(event) {
+  event.preventDefault();
+  var place = $("#place").val();
+  var minutes = $fakeform.find("[name='minutes']").val();
+  var image = $("#image").val();
+  var displaying = $("#displaying").val();
+  console.log({
+    place: place, minutes: minutes, image: image, displaying: displaying
+    })
+  if (minutes) {
+  $.post("fakesubmits", {
+    place: place, minutes: minutes, image: image, displaying: displaying
+    })
+  .done(fakeSuccess).error(onError)
   }
 });

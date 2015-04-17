@@ -4,6 +4,7 @@ var moment = require('moment-timezone');
 var routes = {};
 
 var Van = models.Van;
+var Fake = models.Fake;
 
 
 routes.submit = function(req, res) {
@@ -20,6 +21,31 @@ routes.submit = function(req, res) {
         // console.log(obj)
     });
 };
+
+routes.fakeSubmit = function(req, res) {
+    Fake.findOne({},function(err,data){
+        if (err) {
+            console.log('Error!')
+        }
+        if (!data) {
+            var fakeUpdate = new Fake({place:req.body.place, minutes:req.body.minutes, image:req.body.image,
+            displaying:req.body.displaying})
+            fakeUpdate.save()
+            console.log('hello')
+            res.send(data)
+        }
+        else {
+            data.image = req.body.image
+            data.place = req.body.place
+            data.minutes = req.body.minutes
+            data.displaying = req.body.displaying
+            data.save()
+            console.log('po')
+            res.send(data)
+        }
+    })
+};
+
 
 function printDate(date) {
     return date.toLocaleDateString() + ' at ' + date.toLocaleTimeString()

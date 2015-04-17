@@ -12,6 +12,7 @@ var index = require('./routes/index');
 var sightings = require('./routes/sightings.js');
 var info = require('./routes/info.js');
 
+var fake = require('./routes/fake.js');
 var submit = require('./routes/submit.js');
 
 
@@ -28,9 +29,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', index.home);
 app.get('/sightings', sightings.sightings);
 app.get('/info', info.home);
+app.get('/fakesubmit',fake.home);
 
 
 app.post('/submit', submit.submit);
+app.post('/fakesubmits', submit.fakeSubmit);
 
 mongoURI = process.env.MONGOURI || "mongodb://localhost";
 mongoose.connect(mongoURI);
