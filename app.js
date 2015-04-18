@@ -26,8 +26,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // app.use(favicon(path.join(__dirname,'public/images/favicon.ico')));
 
-app.get('/', index.home);
-// app.get('/', index.down);
+// app.get('/', index.home);
+app.get('/', index.down);
 app.get('/sightings', sightings.sightings);
 app.get('/info', info.home);
 app.get('/fakesubmit',fake.home);
