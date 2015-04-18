@@ -5,6 +5,7 @@ var routes = {};
 
 var Van = models.Van;
 var Fake = models.Fake;
+var Feedback = models.Feedback;
 
 
 routes.submit = function(req, res) {
@@ -44,6 +45,16 @@ routes.fakeSubmit = function(req, res) {
             res.send(data)
         }
     })
+};
+
+routes.feedbackSubmit = function(req, res) {
+    var feedback = new Feedback({name:req.body.name, feedback:req.body.feedback});
+    feedback.save(function(err,data){
+        if (err) {
+            console.log('Error!')
+        }
+        res.send(feedback);
+    });
 };
 
 

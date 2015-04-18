@@ -21,4 +21,9 @@ var home = function (req, res) {
     });
 };
 
+var down = function (req, res) {
+    res.render('down');
+};
+
 module.exports.home = home;
+module.exports.down = down;
